@@ -1,7 +1,2 @@
-require "plupload-rails/version"
+require "plupload/rails"
 
-module Plupload
-  module Rails
-    # Your code goes here...
-  end
-end

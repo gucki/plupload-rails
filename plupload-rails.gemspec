@@ -1,15 +1,15 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "plupload-rails/version"
+require "plupload/rails/version"
 
 Gem::Specification.new do |s|
   s.name        = "plupload-rails"
   s.version     = Plupload::Rails::VERSION
   s.authors     = ["Corin Langosch"]
   s.email       = ["info@corinlangosch.com"]
-  s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.homepage    = "https://github.com/gucki/plupload-rails"
+  s.summary     = %q{Integration of Plupload with the Rails 3.1 asset pipeline}
+  s.description = %q{This gem integrates Plupload with the Rails 3.1 asset pipeline.}
 
   s.rubyforge_project = "plupload-rails"
 
@@ -20,5 +20,5 @@ Gem::Specification.new do |s|
 
   # specify any dependencies here; for example:
   # s.add_development_dependency "rspec"
-  # s.add_runtime_dependency "rest-client"
+  s.add_runtime_dependency "rails", "~>3.1.0"
 end
