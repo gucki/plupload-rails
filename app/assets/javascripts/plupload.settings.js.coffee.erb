@@ -1,0 +1,9 @@
+# sadly there doesn't seem to be any other way to set global settings for plupload...
+proxied = plupload.Uploader
+plupload.Uploader = ->
+  settings = $.extend {}, arguments[0],
+    multipart: true
+    flash_swf_url: '<%=asset_path("plupload.flash.swf")%>'
+    silverlight_xap_url: '<%=asset_path("plupload.silverlight.xap")%>'
+  proxied.apply(this, [settings])
+
