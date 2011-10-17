@@ -29,10 +29,11 @@ Add to your application.js:
 
 
 Add to your application.scss:
+
     @import "jquery.plupload.queue";
 
 
-Simple example haml for your viwws:
+Simple example haml for your views:
 
     div#uploader
     javascript:
