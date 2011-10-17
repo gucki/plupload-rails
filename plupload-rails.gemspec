@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Corin Langosch"]
   s.email       = ["info@corinlangosch.com"]
   s.homepage    = "https://github.com/gucki/plupload-rails"
-  s.summary     = %q{Integration of Plupload #{Plupload::VERSION} with the Rails 3.1 asset pipeline}
-  s.description = %q{This gem integrates Plupload #{Plupload::VERSION} with the Rails 3.1 asset pipeline.}
+  s.summary     = %Q{Integration of Plupload #{Plupload::VERSION} with the Rails 3.1 asset pipeline}
+  s.description = %Q{This gem integrates Plupload #{Plupload::VERSION} with the Rails 3.1 asset pipeline.}
 
   s.rubyforge_project = "plupload-rails"
 
@@ -22,3 +22,4 @@ Gem::Specification.new do |s|
   # s.add_development_dependency "rspec"
   s.add_runtime_dependency "rails", "~>3.1.0"
 end
+
