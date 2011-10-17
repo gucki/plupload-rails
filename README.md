@@ -50,5 +50,5 @@ Simple example haml for your viwws:
 
 Updating
 --
-When new versions Plupload are released, simply update the gem to the latest version. When you notice that there's no gem for the latest plupload, please contact me (or even better, create an issue/ pull request).
+When new versions of Plupload are released, simply update the gem to the latest version. When you notice that there's no gem for the latest plupload, please contact me (or even better, create an issue/ pull request).
 
