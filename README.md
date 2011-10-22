@@ -42,8 +42,8 @@ Simple example haml for your views:
           runtimes: 'gears,flash,silverlight,browserplus,html5',
           url: '#{images_path}',
           multipart_params: {
-            '#{{request_forgery_protection_token}}': '#{{form_authenticity_token}}',
-            '#{{request.session_options[:key]}}': '#{{request.session_options[:id]}}'
+            '#{request_forgery_protection_token}': '#{form_authenticity_token}',
+            '#{request.session_options[:key]}': '#{request.session_options[:id]}'
           }
         });
       });
