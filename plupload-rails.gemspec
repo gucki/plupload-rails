@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Corin Langosch"]
   s.email       = ["info@corinlangosch.com"]
   s.homepage    = "https://github.com/gucki/plupload-rails"
-  s.summary     = %Q{Integration of Plupload #{Plupload::VERSION} with the Rails 3.1 asset pipeline}
-  s.description = %Q{This gem integrates Plupload #{Plupload::VERSION} with the Rails 3.1 asset pipeline.}
+  s.summary     = %Q{Integration of Plupload #{Plupload::VERSION} with the Rails 3.x asset pipeline}
+  s.description = %Q{This gem integrates Plupload #{Plupload::VERSION} with the Rails 3.x asset pipeline.}
 
   s.rubyforge_project = "plupload-rails"
 
