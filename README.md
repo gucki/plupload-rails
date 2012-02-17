@@ -18,14 +18,20 @@ Quick Start
 Add to your application.js:
 
     //= require plupload
-    //= require plupload.settings     // optional, but recommended. it sets generic settings like flash url, etc.
-    //= require jquery.plupload.queue // optional, only if you want to use the jquery integration
-    //= require plupload.flash        // optional, only needed if you want to use this runtime
-    //= require plupload.silverlight  // optional, only needed if you want to use this runtime
-    //= require plupload.html4        // optional, only needed if you want to use this runtime
-    //= require plupload.html5        // optional, only needed if you want to use this runtime
-    //= require plupload.gears        // optional, only needed if you want to use this runtime
-    //= require plupload.browserplus  // optional, only needed if you want to use this runtime
+    
+    // optional, but recommended. it sets generic settings like flash url, etc.
+    //= require plupload.settings     
+
+    // optional, only if you want to use the jquery integration
+    //= require jquery.plupload.queue 
+    
+    // optional, choose the ones you'd like to use
+    //= require plupload.flash        
+    //= require plupload.silverlight  
+    //= require plupload.html4        
+    //= require plupload.html5        
+    //= require plupload.gears        
+    //= require plupload.browserplus
 
 
 Add to your application.scss:
