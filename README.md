@@ -19,6 +19,9 @@ Add to your application.js:
 
     //= require plupload
     
+    // optional, only needed if you'd like to use plupload localized
+    //= require plupload/i18n/de
+
     // optional, but recommended. it sets generic settings like flash url, etc.
     //= require plupload.settings     
 
