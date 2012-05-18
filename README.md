@@ -45,7 +45,7 @@ Add to your application.scss:
 Simple example haml for your views:
 
     div#uploader
-    javascript:
+    :javascript
       $(function(){
         $("#uploader").pluploadQueue({
           runtimes: 'gears,flash,silverlight,browserplus,html5',
