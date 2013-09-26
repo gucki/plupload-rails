@@ -5,8 +5,8 @@
   plupload.Uploader = function (settings) {
     settings = $.extend({}, settings, {
       multipart: true,
-      flash_swf_url: '<%=asset_path("plupload.flash.swf")%>',
-      silverlight_xap_url: '<%=asset_path("plupload.silverlight.xap")%>'
+      flash_swf_url: '<%= asset_path("Moxie.swf") %>',
+      silverlight_xap_url: '<%= asset_path("Moxie.xap") %>'
     });
     
     return proxied.apply(this, [settings]);
