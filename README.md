@@ -64,3 +64,10 @@ Updating
 --
 When new versions of Plupload are released, simply update the gem to the latest version. When you notice that there's no gem for the latest plupload, please contact me (or even better, create an issue/ pull request).
 
+
+License
+--
+
+Dual licensed under the [GPLv2 license](GPL-LICENSE.txt) and the [MIT license](MIT-LICENSE.txt). Plupload itself (including the JS, CSS, images, the Silverlight and Flash components) is licensed under GPLv2, unless you have acquired a [commercial license](http://plupload.com/license.php).
+
+Copyright © 2011-2013 Corin Langosch and contributors

@@ -10,6 +10,7 @@ Gem::Specification.new do |s|
   s.homepage    = "https://github.com/gucki/plupload-rails"
   s.summary     = %Q{Integration of Plupload #{Plupload::VERSION} with the Rails asset pipeline}
   s.description = %Q{This gem integrates Plupload #{Plupload::VERSION} with the Rails asset pipeline.}
+  s.licenses    = ["MIT", "GPL-2"]
 
   s.rubyforge_project = "plupload-rails"
 
