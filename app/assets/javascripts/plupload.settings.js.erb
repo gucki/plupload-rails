@@ -1,5 +1,5 @@
 // Assigns default Plupload settings that work with the asset pipeline.
-(function () {
+(function ($) {
   var proxied = plupload.Uploader;
   
   plupload.Uploader = function (settings) {
@@ -11,4 +11,4 @@
     
     return proxied.apply(this, [settings]);
   };
-}());
+}(jQuery));
