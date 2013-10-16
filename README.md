@@ -37,7 +37,7 @@ Add to your application.scss:
     @import "jquery.plupload.queue";
 
 
-Simple example haml for your views:
+Simple example Haml for your views:
 
     div#uploader
     :javascript
@@ -52,6 +52,20 @@ Simple example haml for your views:
         });
       });
 
+And the same in ERB:
+
+    <script>
+      $(function(){
+        $("#uploader").pluploadQueue({
+          runtimes: 'html5,flash,silverlight',
+          url: '<%= sink_hole_path %>',
+          multipart_params: {
+            '<%= request_forgery_protection_token %>': '<%= form_authenticity_token %>',
+            '<%= Rails.application.config.session_options[:key] %>': '<%= request.session_options[:id] %>'
+          }
+        });
+      });
+    </script>
 
 Updating
 --
