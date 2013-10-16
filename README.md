@@ -5,6 +5,7 @@ This gem integrates [Plupload](http://www.plupload.com/) with the Rails >= 3.1 a
 
 To use it with Rails 4, please fetch the gem from upstream: `gem 'plupload-rails', github: 'gucki/plupload-rails'`
 
+
 Install
 --
 
@@ -37,6 +38,10 @@ Add to your application.scss:
     @import "jquery.plupload.queue";
 
 
+Alternatively (if you're not using SASS or SCSS), add the require to your application.css:
+
+    = require jquery.plupload.queue
+
 Simple example Haml for your views:
 
     div#uploader
@@ -66,6 +71,7 @@ And the same in ERB:
         });
       });
     </script>
+
 
 Updating
 --
