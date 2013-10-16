@@ -47,7 +47,7 @@ Simple example haml for your views:
           url: '#{images_path}',
           multipart_params: {
             '#{request_forgery_protection_token}': '#{form_authenticity_token}',
-            '#{request.session_options[:key]}': '#{request.session_options[:id]}'
+            '#{Rails.application.config.session_options[:key]}': '#{request.session_options[:id]}'
           }
         });
       });
