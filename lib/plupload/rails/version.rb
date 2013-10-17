@@ -1,7 +1,6 @@
 module Plupload
-  VERSION = "1.5.2"
+  VERSION = "2.0.0"
   module Rails
-    VERSION = "1.0.6"
+    VERSION = "1.1.0"
   end
 end
-
