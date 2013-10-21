@@ -9,9 +9,9 @@ Install
 
 Just add it got your Gemfile:
 
-
-    gem 'plupload-rails'
-
+```ruby
+gem 'plupload-rails'
+```
 
 Quick Start
 --
@@ -31,45 +31,44 @@ Add to your application.js:
     //= require jquery.plupload.queue
 
 
-Add to your application.scss:
+Add to your application stylesheet:
 
-    @import "jquery.plupload.queue";
+    //= require jquery.plupload.queue
 
-
-Alternatively (if you're not using SASS or SCSS), add the require to your application.css:
-
-    = require jquery.plupload.queue
 
 Simple example Haml for your views:
 
-    div#uploader
-    :javascript
-      $(function(){
-        $("#uploader").pluploadQueue({
-          runtimes: 'gears,flash,silverlight,browserplus,html5',
-          url: '#{images_path}',
-          multipart_params: {
-            '#{request_forgery_protection_token}': '#{form_authenticity_token}',
-            '#{Rails.application.config.session_options[:key]}': '#{request.session_options[:id]}'
-          }
-        });
-      });
+```haml
+div#uploader
+:javascript
+  $(function(){
+    $("#uploader").pluploadQueue({
+      runtimes: 'gears,flash,silverlight,browserplus,html5',
+      url: '#{images_path}',
+      multipart_params: {
+        '#{request_forgery_protection_token}': '#{form_authenticity_token}',
+        '#{Rails.application.config.session_options[:key]}': '#{request.session_options[:id]}'
+      }
+    });
+  });
+```
 
 And the same in ERB:
 
-    <script>
-      $(function(){
-        $("#uploader").pluploadQueue({
-          runtimes: 'html5,flash,silverlight',
-          url: '<%= sink_hole_path %>',
-          multipart_params: {
-            '<%= request_forgery_protection_token %>': '<%= form_authenticity_token %>',
-            '<%= Rails.application.config.session_options[:key] %>': '<%= request.session_options[:id] %>'
-          }
-        });
-      });
-    </script>
-
+```erb
+<script>
+  $(function(){
+    $("#uploader").pluploadQueue({
+      runtimes: 'html5,flash,silverlight',
+      url: '<%= sink_hole_path %>',
+      multipart_params: {
+        '<%= request_forgery_protection_token %>': '<%= form_authenticity_token %>',
+        '<%= Rails.application.config.session_options[:key] %>': '<%= request.session_options[:id] %>'
+      }
+    });
+  });
+</script>
+```
 
 Updating
 --
