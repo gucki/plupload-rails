@@ -38,7 +38,7 @@
 .plupload_logo {
 	width: 40px;
 	height: 40px;
-	background: image-url('jquery.ui.plupload/plupload.png') no-repeat 0 0;
+	background: url(<%= asset_path 'jquery.ui.plupload/plupload.png' %>) no-repeat 0 0;
 	position: absolute;
 	top: 8px;
 	left: 8px;
@@ -110,7 +110,7 @@
 	position: absolute;
 	left: 6px;
 	top: 6px;
-	background: #eee url(../img/loading.gif) center no-repeat;
+	background: #eee url(<%= asset_path 'jquery.ui.plupload/loading.gif' %>) center no-repeat;
 }
 
 .plupload_file_thumb_loaded {
@@ -336,7 +336,7 @@
 	font-weight: bold;
 }
 
-plupload_message i {
+.plupload_message i {
 	font-style: italic;
 }
 
