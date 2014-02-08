@@ -1,14 +1,16 @@
 // Assigns default Plupload settings that work with the asset pipeline.
 (function ($) {
   var proxied = plupload.Uploader;
-  
+
   plupload.Uploader = function (settings) {
     settings = $.extend({}, settings, {
       multipart: true,
       flash_swf_url: '<%= asset_path("Moxie.swf") %>',
       silverlight_xap_url: '<%= asset_path("Moxie.xap") %>'
     });
-    
-    return proxied.apply(this, [settings]);
+
+    return proxied.call(this, settings);
   };
+
+  plupload.Uploader.prototype = proxied.prototype;
 }(jQuery));
