@@ -39,7 +39,7 @@ used as it is.
 	var uploader = $('#uploader').pluploadQueue();
 
 	uploader.bind('FilesAdded', function() {
-
+		
 		// Autostart
 		setTimeout(uploader.start, 1); // "detach" from the main thread
 	});
@@ -73,7 +73,7 @@ used as it is.
 	@param {Boolean} [settings.rename=false] Enable ability to rename files in the queue.
 	@param {Boolean} [settings.multiple_queues=true] Re-activate the widget after each upload procedure.
 */
-(function($) {
+(function($, o) {
 	var uploaders = {};
 
 	function _(str) {
@@ -154,11 +154,18 @@ used as it is.
 				contents_bak = target.html();
 				renderUI(id, target);
 
-				uploader = new plupload.Uploader($.extend({
+				settings = $.extend({
 					dragdrop : true,
 					browse_button : id + '_browse',
 					container : id
-				}, settings));
+				}, settings);
+
+				// Enable drag/drop (see PostInit handler as well)
+				if (settings.dragdrop) {
+					settings.drop_element = id + '_filelist';
+				}
+
+				uploader = new plupload.Uploader(settings);
 
 				uploaders[id] = uploader;
 
@@ -183,7 +190,7 @@ used as it is.
 
 					var icon = $('#' + file.id).attr('class', actionClass).find('a').css('display', 'block');
 					if (file.hint) {
-						icon.attr('title', file.hint);
+						icon.attr('title', file.hint);	
 					}
 				}
 
@@ -191,7 +198,7 @@ used as it is.
 					$('span.plupload_total_status', target).html(uploader.total.percent + '%');
 					$('div.plupload_progress_bar', target).css('width', uploader.total.percent + '%');
 					$('span.plupload_upload_status', target).html(
-						_('Uploaded %d/%d files').replace(/%d\/%d/, uploader.total.uploaded+'/'+uploader.files.length)
+						o.sprintf(_('Uploaded %d/%d files'), uploader.total.uploaded, uploader.files.length)
 					);
 				}
 
@@ -208,7 +215,7 @@ used as it is.
 
 							inputHTML += '<input type="hidden" name="' + id + '_' + inputCount + '_name" value="' + plupload.xmlEncode(file.name) + '" />';
 							inputHTML += '<input type="hidden" name="' + id + '_' + inputCount + '_status" value="' + (file.status == plupload.DONE ? 'done' : 'failed') + '" />';
-
+	
 							inputCount++;
 
 							$('#' + id + '_count').val(inputCount);
@@ -240,7 +247,7 @@ used as it is.
 					if (uploader.total.queued === 0) {
 						$('span.plupload_add_text', target).html(_('Add Files'));
 					} else {
-						$('span.plupload_add_text', target).html(_('%d files queued').replace(/%d/, uploader.total.queued));
+						$('span.plupload_add_text', target).html(o.sprintf(_('%d files queued'), uploader.total.queued));
 					}
 
 					$('a.plupload_start', target).toggleClass('plupload_disabled', uploader.files.length == (uploader.total.uploaded + uploader.total.failed));
@@ -301,12 +308,6 @@ used as it is.
 						});
 					}
 
-
-					// Enable drag/drop (see PostInit handler as well)
-					if (up.settings.dragdrop) {
-						up.settings.drop_element = id + '_filelist';
-					}
-
 					$('#' + id + '_container').attr('title', 'Using runtime: ' + res.runtime);
 
 					$('a.plupload_start', target).click(function(e) {
@@ -342,7 +343,7 @@ used as it is.
 						if (err.code == plupload.FILE_EXTENSION_ERROR) {
 							alert(_("Error: Invalid file extension:") + " " + file.name);
 						}
-
+						
 						file.hint = message;
 						$('#' + file.id).attr('class', 'plupload_failed').find('a').css('display', 'block').attr('title', message);
 					}
@@ -385,7 +386,16 @@ used as it is.
 					}
 				});
 
-				uploader.bind('QueueChanged', updateList);
+				uploader.bind('FilesAdded', updateList);
+
+				uploader.bind('FilesRemoved', function() {
+					// since the whole file list is redrawn for every change in the queue
+					// we need to scroll back to the file removal point to avoid annoying
+					// scrolling to the bottom bug (see #926)
+					var scrollTop = $('#' + id + '_filelist').scrollTop();
+					updateList();
+					$('#' + id + '_filelist').scrollTop(scrollTop);
+				});
 
 				uploader.bind('FileUploaded', function(up, file) {
 					handleStatus(file);
@@ -411,4 +421,4 @@ used as it is.
 			return uploaders[$(this[0]).attr('id')];
 		}
 	};
-})(jQuery);
+})(jQuery, mOxie);
