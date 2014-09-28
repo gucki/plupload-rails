@@ -35,7 +35,11 @@ Add to your application stylesheet:
 
     //= require jquery.plupload.queue
 
-
+For Rails 4, add to config/initializors/assets.rb:
+    
+```ruby
+Rails.application.config.assets.precompile += %w( Moxie.swf Moxie.xap )
+````
 Simple example Haml for your views:
 
 ```haml
